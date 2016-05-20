@@ -1,0 +1,188 @@
+<!-- Data Center Support Operations- Submit a Ticket -->
+<!-- Author: Tori Snyder -->
+<!-- Date Created: 4/29/16 -->
+<!-- Purpose: To allow customers to submit their ticket for a complaint of a malfunctioning product. -->
+<!-- Most Recent Date Modified: 5/12/16 -->
+<!-- Name of Modifier Field: Javascript, comments, creation of navigation pages -->
+
+
+<!DOCTYPE>
+<html>
+	<head>
+		<title>Data Center Support Operations</title>
+		<link rel="stylesheet" type="text/css" href="style.css">
+	</head>
+	<script>
+		/* Validates that there was a phone number entered and whether it is at least 10 characters long
+	*/
+		function validatePhone() {
+      var num;
+      num = document.getElementById("number1").value;
+      if(num.length<9 || num==null){
+          document.getElementById("phone1").innerHTML = "Invalid phone number!";
+          document.getElementById("number1").value = '';
+      } 
+			else if (num.indexOf("-")== -1 || num.indexOf("(")== -1 || num.indexOf(")")== -1) {
+				 document.getElementById("phone1").innerHTML = "Invalid characters, only use numbers!";
+			}				
+			else {
+          document.getElementById("phone1").innerHTML = "Phone number validated!";
+      }
+		}
+		
+		/* Validates that there was a correct email address entered with at least 6 characters
+		*/
+    function validateEmail(){
+        var testAdd = document.getElementById("email").value;
+        if (testAdd.length < 6){
+            document.getElementById("emailoutput").innerHTML = "Must be longer than 6 characters!";
+        }
+				else if (testAdd.indexOf("@") == -1){
+            document.getElementById("emailoutput").innerHTML = "Must contain an @ symbol!";
+        }
+				else if (testAdd.indexOf(".") == -1){
+            document.getElementById("emailoutput").innerHTML = "Must contain a period!";
+        }
+				else {
+            document.getElementById("emailoutput").innerHTML = "Validated!";
+        }
+    }
+		
+		/* Validates that there was a name entered longer than 3 characters
+		*/
+    function validateFirst(){
+        var element = document.getElementById("firstname");
+        var text = element.value;
+        if(text.length < 2){
+            document.getElementById("textoutput1").innerHTML = "Must be longer than 3 characters!";
+        }
+				else{
+            document.getElementById("textoutput1").innerHTML = "Validated!";
+        } 
+    }
+	
+	</script>
+	
+	<body background="raffle-tickets.jpg">
+		<nav id="nav">
+		<ul>
+		  <li><a href="home.html">Home</a></li>
+		  <li><a href="task3.html" class="active">Submit Tickets</a></li>
+		  <li><a href="contact.html">Contact Us</a></li>
+		</ul>
+
+		<table class ="main">
+			<tr>
+				<td class="margin">
+				</td>
+					<h1>Submit a Ticket</h1>
+				<td class="margin">
+				</td>
+			</tr>
+			<tr>
+					<div id="box">
+						<div id="page" class="container"> 
+							<section>
+					<p> Welcome to <strong>The Data Center Support Operations</strong>!  We are very sorry to hear that you have had an issue.  Please enter the following information in order to submit your service ticket.       
+					</p>
+	        <br>
+					<form id="myForm"> <!--action="" method="post"-->
+					<!--Text box for customer ID -->	
+	        Enter your customer ID number (may contain numbers, letters, and/or special characters): <br><br>
+         <input id="numberbox" type="text" class="tb1" name="fname" required>
+         <br>
+         <p id="output"></p>
+	        <br>
+	        <br>
+					<!--Text box for customer's first name -->	
+	        Enter your first name (Must be longer than 3 characters):<br><br>
+	        <input id="firstname" type="text" name="fname" class="tb1" required>
+					<button type="button" onclick="validateFirst()">Validate</button>
+	        <br>
+	        <p id="textoutput1"></p>
+	        <br>
+					<br>
+					<!--Text box for customer's last name -->	
+	        Enter your last name:<br><br>
+	        <input id="lastname" type="text" name="fname" class="tb1" required>
+	        <br>
+	        <p id="textoutput2"></p>
+	        <br>
+					<br>
+					<!--Text box for customer's email address -->	
+					Enter email address (may contain letters, numbers, and/or special characters amounting to at least 6 characters):<br>
+					<div id="special">
+								Example: email@address.com <br><br>
+					</div>
+					<input id="email" type="email" name="fname" class="tb1" required>
+					<button type="button" onclick="validateEmail()">Validate</button>
+					<br>
+					<p id="emailoutput"></p>
+					<br>
+					<br>
+					<!--Text box for customer's day phone -->	
+					Enter phone number for during the day (No hyphens or parenthesis, must be at least 10 characters long):<br>
+					<div id="special">
+							Example: 1234567890 <br><br>
+					</div>
+					<input id="number1" type="tel" name="fname" class="tb1" required>
+					<button type="button" onclick="validatePhone()">Validate</button>
+					<br>
+					<p id="phone1"></p>
+					<br>
+					<br>
+					<!--Text box for customer's evening phone -->	
+					Enter phone number for the evening (No hyphens or parenthesis):<br><br>
+					<div id="special">
+							Example: 1234567890 <br>
+					</div>
+					<br>
+					<input id="number2" type="tel" name="fname" class="tb1" required>
+					<br>
+					<p id="phone2"></p>
+					<br>
+					<br>
+					<!--Calendar to enter the date an issue occurred -->	
+					Date issue started (Select from the calendar):<br><br>
+					<input id="date" type="date" name="fname" class="tb1" required>
+					<br>
+					<p id="dateNum"></p>
+					<br>
+					<br>
+					<!--Text area for customer to explain issue -->	
+					Brief description of the issue (limit to 200 characters):<br><br>
+					<textarea id="mytextarea" rows="4" cols ="80" onfocus="this.value=''" name="fname" class="tb1" required>Your text here</textarea>
+					<br>
+					<br>
+					<br>
+					<!--Text box customer's IP address -->	
+					IP address or Domain name impacted: <br><br>
+					<input id="address" type="text" name="fname" class="tb1" required>
+					<br>
+					<br>
+					<br>
+					<!--Radio buttons for customer's criticality of issue -->	
+					Criticality of Issue (Please select one):<br>
+					<div id="noBox">
+					<fieldset>
+					<input type="radio" id="issue" name="fname" value="High">High
+					<br>
+					<input type="radio" id="issue" name="fname" value="Moderate">Moderate
+					<br>
+					<input type="radio" id="issue" name="fname" value="Low">Low
+					<br>
+				</fieldset>
+					<br>
+					<br>
+					<!--Submit button-->
+					<button type="button">Submit</button>
+				</form>
+			</section>
+					</div>
+				</td>
+				<td width=15%>
+				</td>
+			</tr>
+		</table>
+	</body>
+</html>
