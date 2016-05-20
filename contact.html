@@ -1,0 +1,74 @@
+<!-- Data Center Support Operations- Submit a Ticket -->
+<!-- Author: Tori Snyder -->
+<!-- Date Created: 4/29/16 -->
+<!-- Purpose: To allow customers to submit their ticket for a complaint of a malfunctioning product. -->
+<!-- Most Recent Date Modified: 5/12/16 -->
+<!-- Name of Modifier Field: Creation of navigation pages, comments -->
+
+<!DOCTYPE>
+<html>
+	<head>
+		<title>Data Center Support Operations</title>
+		<link rel="stylesheet" type="text/css" href="style.css">
+	</head>
+
+	<body background="raffle-tickets.jpg">
+		<ul>
+		  <li><a href="home.html">Home</a></li>
+		  <li><a href="task3.html">Submit Tickets</a></li>
+		  <li><a href="contact.html" class="active">Contact Us</a></li>
+		</ul>
+
+		<table class ="main">
+			<tr>
+				<td class="margin">
+				</td>
+					<h1>Date Center Support Operations</h1>
+				<td class="margin">
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<div id="box">
+						<div id="page" class="container"> 
+							<section>
+					<form>
+						<!--Text box for customer's name -->	
+		        Enter your first name:<br><br>
+		        <input id="name" type="text" name="fname" class="tb1" required>
+		        <br>
+		        <p id="textoutput"></p>
+		        <br>
+						<br>
+						
+						<!--Text box for customer to enter email address -->	
+						Enter email address (may contain letters, numbers, and/or special characters):<br>
+						<div id="special">
+									Example: email@address.com <br><br>
+						</div>
+						<input id="email" type="email" name="fname" class="tb1" required>
+						<br>
+						<p id="emailoutput"></p>
+						<br>
+						<br>
+						
+						<!--Text area for customer to enter message -->	
+						Please enter your message (limit to 200 characters):<br><br>
+						<textarea id="mytextarea" rows="4" cols ="80" onfocus="this.value=''" name="fname" class="tb1" required>Your text here</textarea>
+						<br>
+						<br>
+						<br>
+						
+						<!--Submit button-->
+						<button type="button">Submit</button>
+					</form>	
+	        <br>
+				</div>
+					</div>
+				</td>
+				<td width=15%>
+				</td>
+			</tr>
+		</table>
+	</body>
+</html>
